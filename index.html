@@ -1,0 +1,81 @@
+<html ng-app="crudApp">
+<head>
+<title>AngularJS CRUD Operations Demo</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<!-- Include Bootstrap CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!-- Include main CSS -->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<!-- Include jQuery library -->
+<script src="js/jQuery/jquery.min.js"></script>
+<!-- Include AngularJS library -->
+<script src="lib/angular/angular.min.js"></script>
+<!-- Include Bootstrap Javascript -->
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container wrapper" ng-controller="DbController">
+<h1 class="text-center">Systems Limited Employee Portal</h1>
+<nav class="navbar navbar-default">
+<div class="navbar-header">
+<div class="alert alert-default navbar-brand search-box">
+<button class="btn btn-primary" ng-click="formToggle()" ng-show="show_form">Add Employee <span aria-hidden="true" class="glyphicon glyphicon-plus"></span></button>
+</div>
+<div class="alert alert-default input-group search-box">
+<span class="input-group-btn">
+<input class="form-control" ng-model="search_query" placeholder="Search Employee Details Into Database..." type="text">
+</span>
+</div>
+</div>
+</nav>
+<div class="col-md-6 col-md-offset-3">
+
+<!-- Include form template which is used to insert data into database -->
+<div ng-include src="'templates/form.html'"></div>
+
+<!-- Include form template which is used to edit and update data into database -->
+<div ng-include src="'templates/editForm.html'"></div>
+</div>
+<div class="clearfix"></div>
+
+<!-- Table to show employee detalis -->
+<div class="table-responsive">
+<table class="table table-hover">
+<tr>
+
+<!--    <th>SN</th>-->
+<th>Emp ID</th>
+<th>Employee Name</th>
+<th>Email Address</th>
+<th>Gender</th>
+<th>Address</th>
+<th>Status</th>
+<th></th>
+<th></th>
+</tr>
+<tr ng-repeat="detail in details| filter:search_query">
+
+
+<!--    <td>1</td>-->
+<td><span>{{detail.emp_id}}</span></td>
+<td>{{detail.emp_name}}</td>
+<td>{{detail.emp_email}}</td>
+<td>{{detail.emp_gender}}</td>
+<td>{{detail.emp_address}}</td>
+<td>Active</td>
+<td>
+<button class="btn btn-warning" ng-click="editInfo(detail)" title="Edit"><span class="glyphicon glyphicon-edit"></span></button>
+</td>
+
+    <td>
+<button class="btn btn-danger" ng-click="deleteInfo(detail)" title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<!-- Include controller -->
+<script src="js/angular-script.js"></script>
+</body>
+</html>
