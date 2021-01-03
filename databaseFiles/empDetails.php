@@ -7,7 +7,7 @@ require_once 'database_connections.php';
 // mysqli query to fetch all data from database
 $query = "SELECT * FROM emp_details 
           WHERE status = 1 
-          ORDER BY emp_id ASC ";
+          ORDER BY emp_id ASC";
 
 $result = mysqli_query($con, $query);
 
