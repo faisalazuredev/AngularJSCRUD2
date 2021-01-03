@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `emp_details` (
   `emp_email` varchar(255) NOT NULL,
   `emp_gender` varchar(255) NOT NULL,
   `emp_address` varchar(255) NOT NULL,
+  `status` varchar(255) ,
   PRIMARY KEY (`emp_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
