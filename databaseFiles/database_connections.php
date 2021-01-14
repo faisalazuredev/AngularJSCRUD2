@@ -3,5 +3,5 @@
 
 
 
-$con = mysqli_connect("localhost", "root", "", "employee");
+$con = mysqli_connect("amad-database.mysql.database.azure.com", "amad@amad-database", "systems123!@#", "employee");
 ?>
